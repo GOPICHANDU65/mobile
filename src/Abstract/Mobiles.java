@@ -8,16 +8,23 @@ import model.Software;
 import javax.swing.plaf.synth.ColorType;
 
 public abstract class Mobiles {
-    public abstract void MobileColor(String color);
-    public abstract  void  MobileSim(String Sim);
+    public abstract void MobileColor();
+    public abstract  void  MobileSim();
     int camera;
     int displayScreen;
     int hardware;
     int Software;
 
 
-    public Mobiles getMobiles() {
-        return new SmartPh(getcamera(),getdisplayscreen(),gethardware(),getSoftware());
+    public final void getMobiles() {
+        getSoftware();
+        gethardware();
+        getcamera();
+        getdisplayscreen();
+        MobileSim();
+        MobileColor();
+        System.out.println("Mobile Delivered Successfully");
+
     }
     public model.Software getSoftware() {
         return new Software(20,"IntelCore");
@@ -33,12 +40,7 @@ public abstract class Mobiles {
     public DisplayScreen getdisplayscreen(){
         return new DisplayScreen( 75.7 , 150.9,"LCD Multi-Touch");
     }
-    void displayComponents() {
-        System.out.println("Camera: " + camera);
-        System.out.println("ScreenModel: " +displayScreen);
-        System.out.println("Hardware: "+ hardware);
-        System.out.println("Software: "+ Software);
-    }
+
 
 
 }
